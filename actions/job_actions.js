@@ -3,7 +3,9 @@ import reverseGeocode from 'latlng-to-zip';
 import qs from 'qs';
 
 import {
-    FETCH_JOBS
+    FETCH_JOBS,
+    LIKE_JOB,
+    CLEAR_LIKED_JOBS
 } from './types';
 
 //const API_KEY = 'AIzaSyBnJtKAn7O0bzwJcJ80lEXEZ-daqzuOM-Y';
@@ -34,3 +36,13 @@ export const fetchJobs = (region, callback) => async (dispatch) => {
   }
 };
 
+export const likeJob = (job) => {
+  return {
+    payload: job,
+    type: LIKE_JOB
+  };
+};
+
+export const clearLikedJobs = () => {
+  return { type: CLEAR_LIKED_JOBS };
+};
